@@ -2,6 +2,7 @@
 
 import { useQuery } from 'react-query';
 import ContentItem from './ContentItem';
+import { getFollowingFeed } from './services';
 
 export default function Feed({ section, apiEndpoint }) {
 
@@ -21,5 +22,8 @@ export default function Feed({ section, apiEndpoint }) {
       onEndReached={() => fetchNextPage()}
     />
   )
+
+
+const { data } = useQuery('following', getFollowingFeed); 
 
 }
